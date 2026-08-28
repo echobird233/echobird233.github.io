@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>学术研究｜卢春翔 Lu Chunxiang</title>
+    <meta name="description" content="卢春翔的学术研究时间线：从智能会议与 Banach 不动点定理，到三维多目标跟踪和场景自适应轨迹预测。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/academic-research.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="学术研究｜卢春翔 Lu Chunxiang">
+    <meta property="og:description" content="从数学理论到三维感知的研究记录。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/academic-research.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header"><div class="shell nav-shell"><a class="brand" href="/"><span class="brand-mark">LCX</span><span class="brand-name">卢春翔</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav id="site-nav" class="site-nav" aria-label="主导航"><a href="/#about">关于</a><a href="/#research">学术研究</a><a href="/#internship">实习经历</a><a href="/#other">其他</a><a href="/resume.html">简历</a><a class="nav-external" href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+    <main id="main-content">
+      <header class="shell page-hero"><p class="eyebrow">01 / ACADEMIC RESEARCH</p><h1>从数学理论到<br><em>三维感知与运动建模</em></h1><p class="page-hero-intro">按时间线记录我如何从大模型应用与非线性泛函分析，逐渐转向三维多目标跟踪、轨迹预测和场景自适应建模。</p><div class="page-meta"><span>本科在读 · 合肥工业大学</span><span>研究主线 · 2025 — 至今</span><span>论文状态 · 草稿 / 尚未投稿</span></div></header>
+      <div class="shell page-layout">
+        <div class="page-content">
+          <section class="content-block"><p class="eyebrow">RESEARCH PATH</p><h2>一条仍在展开的时间线</h2><p>早期项目让我接触到智能系统的完整链路，也让我意识到工程实现和理论表达需要同时推进。现在的省级大创项目聚焦三维重建与运动轨迹估计，下面两个子项目分别从在线跟踪和专家选择切入。</p></section>
+          <section class="content-block"><p class="eyebrow">2025.03 — 2026.03</p><h2>基于星火大模型的智能会议纪要生成系统</h2><p>项目围绕会议场景中的语音、视觉与文本协同展开，目标是让会议记录从原始信号走向结构化纪要。</p><ul><li>参与语音转写、会议模板和纪要生成流程的梳理。</li><li>参与人脸识别考勤模块与异步图像处理方案的设计。</li><li>关注模型压缩与联邦学习在应用场景中的可行性。</li></ul></section>
+          <section class="content-block"><p class="eyebrow">2025.03 — 2026.03</p><h2>Banach 不动点定理的推广</h2><p>从 Banach 不动点定理出发，研究非线性泛函分析中不动点存在性条件的推广问题，逐步完成定理推导、证明组织和论文草稿。</p><div class="evidence-note"><strong>阶段性成果：</strong>已完成阶段性论文草稿；当前页面不将其表述为已投稿或已发表。</div></section>
+          <section id="current-project" class="content-block"><p class="eyebrow">2026.03 — 至今 · 省级大创</p><h2>三维重建与运动轨迹估计算法研究</h2><p>作为项目第一负责人，围绕三维场景中的目标运动、缺失观测和轨迹预测展开研究。项目现有两个子项目，分别形成论文草稿，均尚未投稿。</p>
+            <article id="veloodemot" class="detail-card"><p class="current-label">SUBPROJECT A · DRAFT / NOT SUBMITTED</p><h3>VeloODE-MOT：面向缺失观测的鲁棒三维多目标跟踪</h3><p>研究丢帧、遮挡与轨迹断裂条件下的在线三维多目标跟踪。方法以速度隐变量和结构化连续时间传播为核心，并结合检测锚定、几何关联与轨迹生命周期控制，形成完整的 tracking-by-detection 系统。</p><ul><li>实验数据集：KITTI、V2V4Real、nuScenes。</li><li>关注问题：缺失观测下的运动传播、检测更新与轨迹管理。</li><li>当前状态：论文草稿与公开复现仓库仍在整理，尚未投稿。</li></ul><div class="evidence-note"><strong>证据边界：</strong>完整系统的历史对比显示出积极结果，但匹配实验壳中的 ODE 预测器并非在所有设置下都优于 KF，因此页面采用“完整系统贡献 + 有边界证据”的表述。</div></article>
+            <article id="expert-routing" class="detail-card"><p class="current-label">SUBPROJECT B · DRAFT / NOT SUBMITTED</p><h3>场景自适应的运动 / 地图条件轨迹预测专家路由</h3><p>在恒速度预测器与地图条件预测器之间建立样本级路由框架，利用运动学与局部地图特征选择更合适的预测专家，探索场景条件变化下的预测器组合。</p><ul><li>验证数据：Argoverse 2 与 nuScenes。</li><li>锁定 AV2 选择集上，随机森林路由 ADE 为 2.2374 m，相比 CV 基线 2.3031 m 降低 2.85%。</li><li>独立 AV2 留出集与严格 nuScenes 验证中也报告了相应结果。</li><li>当前状态：论文草稿，尚未投稿。</li></ul></article>
+          </section>
+        </div>
+        <aside class="side-panel"><p class="eyebrow">ON THIS PAGE</p><h2>研究索引</h2><ul class="side-list"><li><a href="#current-project">当前大创项目</a></li><li><a href="#veloodemot">VeloODE-MOT</a></li><li><a href="#expert-routing">场景自适应专家路由</a></li><li><a href="/#internship">转到实习经历 →</a></li></ul><div class="evidence-note">研究页面只展示经过整理的公开信息；原始论文、实验工作区和未公开材料不会直接暴露。</div></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="shell footer-grid"><div><p class="footer-name">卢春翔 <span>·</span> Lu Chunxiang</p><p class="footer-note">一个持续更新中的学生主页。</p></div><div class="footer-links"><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com</a><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><div class="shell footer-bottom"><span>© 2026 Lu Chunxiang</span><a href="/">返回首页 →</a></div></footer>
+    <script src="/script.js"></script>
+  </body>
+</html>

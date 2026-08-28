@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>实习经历｜卢春翔 Lu Chunxiang</title>
+    <meta name="description" content="卢春翔在上海苦芽科技有限公司的实习经历：ROS 2 激光 SLAM 与 Pixi RISC-V 计算机视觉项目。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/internship.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="实习经历｜卢春翔 Lu Chunxiang">
+    <meta property="og:description" content="在上海苦芽科技有限公司参与开源软件开发及维护。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/internship.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="site-header"><div class="shell nav-shell"><a class="brand" href="/"><span class="brand-mark">LCX</span><span class="brand-name">卢春翔</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button><nav id="site-nav" class="site-nav" aria-label="主导航"><a href="/#about">关于</a><a href="/#research">学术研究</a><a href="/#internship">实习经历</a><a href="/#other">其他</a><a href="/resume.html">简历</a><a class="nav-external" href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav></div></header>
+    <main id="main-content">
+      <header class="shell page-hero"><p class="eyebrow">02 / INTERNSHIP</p><h1>把调研变成<br><em>可运行的系统</em></h1><p class="page-hero-intro">在上海苦芽科技有限公司参与开源软件开发及维护，把环境搭建、实验验证、文档编写和公开分享串成完整的工作链路。</p><div class="page-meta"><span>上海苦芽科技有限公司</span><span>开源软件开发及维护</span><span>2026.07.16 — 2026.10.15 · 线上远程</span></div></header>
+      <div class="shell page-layout">
+        <div class="page-content">
+          <section class="content-block"><p class="eyebrow">WORKING STYLE</p><h2>从能运行，到能复现</h2><p>实习期间的项目以开源工具链和可复现实验为中心：先搭好环境，再验证关键路径，最后把过程整理成别人可以阅读、运行和继续修改的材料。</p><ul><li>代码提交与版本维护。</li><li>测试验证、性能记录与问题边界说明。</li><li>文档、教程和公开技术分享。</li></ul></section>
+          <section id="ros2" class="content-block"><p class="eyebrow">PROJECT 01 · ROS 2 / SLAM</p><h2>ROS 2 激光 SLAM 调研与复现实验</h2><p>项目以 ROS 2 Jazzy、Gazebo Harmonic、RViz2、Nav2 与 slam_toolbox 为工具链，使用 TurtleBot3 在仿真室内环境中完成从建图到导航的验证闭环。</p><h3>完成内容</h3><ul><li>搭建 TurtleBot3 仿真与自定义室内环境。</li><li>完成在线二维激光建图、地图保存和 RViz2 可视化。</li><li>验证 Nav2 导航目标，整理路径、覆盖率与实验日志。</li><li>对不同场景的结果进行对比，记录扫描畸变和路线差异等限制。</li></ul><div class="evidence-note"><strong>项目边界：</strong>该项目聚焦 2D LiDAR SLAM 与导航复现，不将其包装为三维 SLAM 或真实机器人部署结果。</div><a class="repo-link" href="https://github.com/echobird233/ros2-lidar-slam-study" target="_blank" rel="noopener noreferrer">在 GitHub 查看项目仓库 <span aria-hidden="true">↗</span></a></section>
+          <section id="pixi" class="content-block"><p class="eyebrow">PROJECT 02 · RISC-V / VISION</p><h2>Pixi RISC-V 支持验证与计算机视觉应用</h2><p>项目围绕三个问题展开：Pixi 能否在 RISC-V 环境中运行，RISC-V 是否能够承载有意义的 AI 推理，以及 Pixi 的任务编排能否帮助组织验证流程。</p><h3>环境与方法</h3><ul><li>环境：QEMU RISC-V + Ubuntu 24.04，Pixi 0.73.0。</li><li>组合：在 linux-riscv64 生态限制下采用 APT + Pixi 任务系统。</li><li>验证：Lucas–Kanade 光流与 ONNX CNN 推理管线。</li></ul><div class="detail-card"><h3>实验记录</h3><div class="metric-row"><span><strong>3.39 ms</strong><small>光流平均 / 帧</small></span><span><strong>≈279 FPS</strong><small>光流吞吐</small></span><span><strong>1.08 ms</strong><small>DNN 稳态中位数 / 张</small></span></div></div><div class="evidence-note"><strong>解读边界：</strong>以上性能数据来自 QEMU 模拟环境；DNN 结果用于验证推理管线和算子执行，不等同于模型分类精度，也不代表真实硬件性能。</div><a class="repo-link" href="https://github.com/echobird233/pixi-riscv-vision-validation" target="_blank" rel="noopener noreferrer">在 GitHub 查看项目仓库 <span aria-hidden="true">↗</span></a></section>
+        </div>
+        <aside class="side-panel"><p class="eyebrow">INTERNSHIP INDEX</p><h2>项目索引</h2><ul class="side-list"><li><a href="#ros2">ROS 2 激光 SLAM</a></li><li><a href="#pixi">Pixi RISC-V / 视觉</a></li><li><a href="https://github.com/echobird233/ros2-lidar-slam-study" target="_blank" rel="noopener noreferrer">ROS 2 GitHub ↗</a></li><li><a href="https://github.com/echobird233/pixi-riscv-vision-validation" target="_blank" rel="noopener noreferrer">Pixi GitHub ↗</a></li></ul><div class="evidence-note">协议中的个人身份、住址、电话、薪酬和公司敏感信息不在网页展示。</div></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="shell footer-grid"><div><p class="footer-name">卢春翔 <span>·</span> Lu Chunxiang</p><p class="footer-note">一个持续更新中的学生主页。</p></div><div class="footer-links"><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com</a><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><div class="shell footer-bottom"><span>© 2026 Lu Chunxiang</span><a href="/">返回首页 →</a></div></footer>
+    <script src="/script.js"></script>
+  </body>
+</html>
