@@ -403,7 +403,7 @@ summary:focus-visible {
 
 .dated-entry {
   display: grid;
-  grid-template-columns: 122px minmax(0, 1fr);
+  grid-template-columns: 142px minmax(0, 1fr);
   gap: 27px;
   padding: 25px 7px 25px 0;
   border-bottom: 1px solid var(--line);
@@ -438,6 +438,7 @@ summary:focus-visible {
   color: var(--soft);
   font: 600 9px/1.6 var(--mono);
   letter-spacing: .04em;
+  white-space: nowrap;
 }
 
 .entry-role,

@@ -36,33 +36,37 @@
         <section class="document-section">
           <p class="section-kicker">Research / Dossier</p>
           <h1>Academic research</h1>
-          <p class="lead">我的研究经历从大模型应用和非线性泛函分析开始，逐渐转向三维场景中的运动建模、目标跟踪与轨迹预测。下面记录当前问题、阶段性证据和仍需验证的边界。</p>
+          <p class="lead">这里按时间整理我参与的科研项目。2026 年 3 月起，我负责省级大学生创新训练项目“三维重建与运动轨迹估计算法研究”。在此之前，我参加过智能会议系统和 Banach 不动点定理推广项目。目前两个三维运动研究子项目都已有论文草稿，但尚未投稿。</p>
         </section>
 
         <section class="document-section">
           <p class="section-kicker">01 / Current</p>
           <h2>Current project</h2>
           <article class="dated-entry">
-            <time class="entry-date">2026.03—<br>Present</time>
-            <div class="entry-content"><h3>三维重建与运动轨迹估计算法研究</h3><p class="entry-role">省级大学生创新训练项目 · 第一负责人</p><p>项目包含两个独立子项目。两者均已形成论文草稿，目前均尚未投稿。</p></div>
+            <time class="entry-date">2026.03—Present</time>
+            <div class="entry-content"><h3>三维重建与运动轨迹估计算法研究</h3><p class="entry-role">省级大学生创新训练项目 · 第一负责人</p><p>这是我目前负责的省级大学生创新训练项目，包含 VeloODE-MOT 和轨迹预测专家路由两个子项目。两者均已有论文草稿，尚未投稿。</p></div>
           </article>
 
           <div id="veloodemot" class="subsection prose">
             <h2>VeloODE-MOT</h2>
             <p class="entry-meta">Velocity-Latent Neural ODE Tracking for Robust 3D Multi-Object Tracking under Missing Observations</p>
-            <p>研究丢帧、遮挡和轨迹断裂条件下的在线三维多目标跟踪。系统以速度隐变量与结构化连续时间传播为核心，并结合检测锚定、几何关联和轨迹生命周期控制，形成完整的 tracking-by-detection 流程。</p>
+            <p>三维多目标跟踪通常依赖逐帧检测结果。当目标被遮挡或者检测器暂时漏检时，跟踪器既得不到新的位置测量，也会失去用于数据关联的线索。预测位置偏差过大后，重新出现的目标可能被分配新的轨迹编号。</p>
+            <p>我在这个项目中负责方法设计、代码实现、实验和论文草稿。VeloODE-MOT 是一套在线三维多目标跟踪系统。系统在检测缺失时使用连续时间模型预测目标运动；检测恢复后，输出重新使用检测框。同时，系统还包括两阶段几何关联、轨迹有效性判断和生命周期管理。</p>
+            <p>实验结果需要分开理解。在 KITTI 上，完整系统的 HOTA 为 81.448，历史 CasA-KF 系统为 76.783。但这两个系统的差别不只有运动预测器，因此不能据此认为 ODE 一定优于 KF。在统一跟踪框架的预测器对比中，ODE 的 HOTA 为 81.404，略低于 KF 的 81.524。</p>
             <ul class="plain-list"><li>实验数据集：KITTI、V2V4Real、nuScenes。</li><li>研究问题：缺失观测下的运动传播、检测更新与轨迹管理。</li><li>当前状态：公开复现仓库仍在整理；论文草稿，尚未投稿。</li></ul>
-            <table class="data-table"><thead><tr><th>比较设置</th><th>VeloODE-MOT / ODE</th><th>参照</th><th>解读</th></tr></thead><tbody><tr><td>KITTI 历史完整系统</td><td>HOTA 81.448</td><td>历史 CasA-KF 76.783</td><td>完整系统对比呈积极结果</td></tr><tr><td>KITTI 匹配实验壳</td><td>ODE 81.404</td><td>KF 81.524</td><td>ODE 预测器略低于 KF</td></tr></tbody></table>
-            <div class="evidence-note"><strong>证据边界：</strong>完整系统的历史结果不能被解释为 ODE 预测器在所有设置下单独优于 KF。页面保留两种结果，避免把系统贡献写成单组件的普遍优势。</div>
+            <table class="data-table"><thead><tr><th>比较设置</th><th>VeloODE-MOT / ODE</th><th>参照</th><th>结果</th></tr></thead><tbody><tr><td>KITTI 历史完整系统</td><td>HOTA 81.448</td><td>历史 CasA-KF 76.783</td><td>完整系统 HOTA 较高</td></tr><tr><td>KITTI 匹配实验壳</td><td>ODE 81.404</td><td>KF 81.524</td><td>ODE HOTA 略低于 KF</td></tr></tbody></table>
+            <div class="evidence-note"><strong>跨数据集结果：</strong>V2V4Real 只有 3 个序列，可以作为有限的迁移测试；nuScenes 的原生采样率为 2 Hz，检测器和场景分布也与 KITTI 不同，当前方法在这一设置中出现了较多误检。连续时间传播是否有效，还会受到检测器、采样率、关联规则和轨迹输出策略的影响。</div>
             <span class="status-note">论文草稿，尚未投稿</span>
           </div>
 
           <div id="expert-routing" class="subsection prose">
             <h2>Scenario-adaptive expert routing</h2>
             <p class="entry-meta">场景自适应的运动条件 / 地图条件轨迹预测专家路由</p>
-            <p>在恒速度预测器与地图条件预测器之间建立样本级路由框架，使用运动学和局部地图特征选择更适合当前样本的预测专家。</p>
+            <p>地图条件预测器并不是在每个样本上都优于恒速度预测。有些目标近期运动比较稳定，只用历史轨迹就能得到较好的结果；另一些目标的未来运动与道路结构关系更大。</p>
+            <p>这个子项目固定了恒速度和 MapAware 两个预测器，再使用目标速度、加速度、转向变化和局部地图特征，判断每个样本应采用哪一个结果。我负责实验设计、选择器训练、地图输入扰动实验、跨数据集验证和论文草稿。</p>
+            <p>在 1062 个车辆样本组成的 AV2 测试集中，恒速度基线的 ADE 为 2.3031 米，随机森林选择器为 2.2374 米，降低 2.85%。在另一个没有参与前期设计的 AV2 留出集上，ADE 降低 3.00%；在 nuScenes 验证集上降低 1.87%。</p>
             <table class="data-table"><thead><tr><th>验证设置</th><th>随机森林路由 ADE</th><th>CV 基线 ADE</th><th>相对降低</th></tr></thead><tbody><tr><td>AV2 锁定选择集</td><td>2.2374 m</td><td>2.3031 m</td><td>2.85%</td></tr><tr><td>独立 AV2 留出集</td><td>2.2086 m</td><td>2.2770 m</td><td>3.00%</td></tr><tr><td>严格 nuScenes 验证</td><td>4.5834 m</td><td>4.6709 m</td><td>1.87%</td></tr></tbody></table>
-            <div class="evidence-note"><strong>解读范围：</strong>这些结果用于说明样本级专家选择在当前实验设置中的表现，不外推为对所有轨迹预测方法或场景的普遍优势。</div>
+            <div class="evidence-note"><strong>当前限制：</strong>实验只包含车辆、单智能体和单条预测轨迹。选择器也需要先得到两个预测器的输出，因此现阶段减少的是预测误差，不是地图读取或模型计算开销。</div>
             <span class="status-note">论文草稿，尚未投稿</span>
           </div>
         </section>
@@ -70,11 +74,11 @@
         <section class="document-section">
           <p class="section-kicker">02 / Earlier</p>
           <h2>Earlier work</h2>
-          <article class="dated-entry"><time class="entry-date">2025.03—<br>2026.03</time><div class="entry-content"><h3>基于星火大模型的智能会议纪要生成系统</h3><p class="entry-role">大学生创新训练项目 · 核心成员</p><p>围绕会议语音转写、模板化纪要生成和人脸考勤展开；参与人脸识别考勤、异步图像处理，以及模型压缩与联邦学习方案设计。</p></div></article>
-          <article class="dated-entry"><time class="entry-date">2025.03—<br>2026.03</time><div class="entry-content"><h3>Banach 不动点定理的推广</h3><p class="entry-role">大学生创新训练项目 · 核心成员</p><p>从 Banach 不动点定理出发，研究非线性泛函分析中不动点存在性条件的变化，完成定理推导、证明组织和阶段性论文草稿。</p></div></article>
+          <article class="dated-entry"><time class="entry-date">2025.03—2026.03</time><div class="entry-content"><h3>基于星火大模型的智能会议纪要生成系统</h3><p class="entry-role">大学生创新训练项目 · 核心成员</p><p>智能会议项目主要处理语音转写、会议纪要生成和人脸考勤。我负责其中的人脸识别考勤、异步图像处理，并参与模型压缩和联邦学习方案设计。</p></div></article>
+          <article class="dated-entry"><time class="entry-date">2025.03—2026.03</time><div class="entry-content"><h3>Banach 不动点定理的推广</h3><p class="entry-role">大学生创新训练项目 · 核心成员</p><p>Banach 不动点定理推广项目属于非线性泛函分析方向。我参与整理定理成立条件、推导证明过程和撰写论文草稿。这个项目没有继续使用机器学习方法，重点是数学证明本身。</p></div></article>
         </section>
 
-        <p class="endnote">Research descriptions distinguish manuscripts, internal experiments and public evidence. No item on this page is presented as a published paper.</p>
+        <p class="endnote">本页列出的论文草稿均未投稿，表格数据来自现阶段实验结果。</p>
       </main>
     </div>
     <script src="/script.js"></script>
