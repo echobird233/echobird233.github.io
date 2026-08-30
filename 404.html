@@ -3,16 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>页面未找到｜卢春翔 Lu Chunxiang</title>
+    <title>页面未找到｜卢春翔 Chunxiang Lu</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <main class="shell page-hero" style="min-height:70vh">
-      <p class="eyebrow">404 / PAGE NOT FOUND</p>
-      <h1>这页还在路上<br><em>先回到主页吧</em></h1>
-      <p class="page-hero-intro">你访问的页面不存在，或者链接已经发生变化。</p>
-      <div class="resume-actions"><a class="button button-dark" href="/">返回主页 <span aria-hidden="true">→</span></a><a class="button button-light" href="/articles/">进入调研与笔记 <span aria-hidden="true">↗</span></a></div>
-    </main>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="site-shell">
+      <aside class="profile-rail" aria-label="个人身份与导航">
+        <div class="profile-top">
+          <a class="monogram" href="/" aria-label="返回首页">LCX</a>
+          <div><p class="profile-name">卢春翔</p><p class="profile-name-en">Chunxiang Lu</p></div>
+          <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="profile-nav">MENU</button>
+          <p class="profile-role">Undergraduate Researcher<br>Hefei University of Technology</p>
+        </div>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/">About</a><a href="/projects/academic-research.html">Research</a><a href="/projects/internship.html">Experience</a><a href="/resume.html">CV</a><a href="/articles/">Notes</a></nav>
+        <p class="profile-foot">luchunxiang.cn</p>
+      </aside>
+      <main id="main-content" class="document not-found">
+        <h1>Page not found</h1>
+        <p>你访问的页面不存在，或者链接已经发生变化。</p>
+        <p><a href="/">返回主页 →</a></p>
+      </main>
+    </div>
+    <script src="/script.js"></script>
   </body>
 </html>
