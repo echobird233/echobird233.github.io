@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-31T17:00:00+08:00",
+  "title": "Design System: 卢春翔个人主页",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#f5f0e6",
+        "tonalRamp": ["#2f2b24", "#50493d", "#736a5a", "#998f7d", "#bdb3a2", "#d8d0c1", "#eee8dd", "#f9f6ef"]
+      },
+      "paper-deep": {
+        "role": "neutral",
+        "displayName": "Deep Paper",
+        "canonical": "#eee7da",
+        "tonalRamp": ["#2d2923", "#4b453b", "#6d6457", "#918676", "#b5aa99", "#d0c7b8", "#e6dfd3", "#f5f1ea"]
+      },
+      "rail": {
+        "role": "neutral",
+        "displayName": "Charcoal Rail",
+        "canonical": "#242522",
+        "tonalRamp": ["#181916", "#242522", "#3d3f3a", "#5b5e56", "#7c8076", "#a2a69b", "#c9ccc4", "#eff0ec"]
+      },
+      "rail-ink": {
+        "role": "neutral",
+        "displayName": "Rail Ink",
+        "canonical": "#e8e0d2",
+        "tonalRamp": ["#2c2924", "#4a453d", "#6b6459", "#8f8678", "#b2a99b", "#cfc7bb", "#e5ded3", "#f6f3ed"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "canonical": "#292824",
+        "tonalRamp": ["#191815", "#292824", "#42413b", "#616059", "#838179", "#a8a69f", "#ceccc7", "#f1f0ed"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Brown Gray",
+        "canonical": "#6d675f",
+        "tonalRamp": ["#24211e", "#3c3833", "#575149", "#736c63", "#938b81", "#b4ada4", "#d5d0ca", "#f2f0ed"]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft Brown Gray",
+        "canonical": "#726960",
+        "tonalRamp": ["#241f1b", "#3c342e", "#554b43", "#726960", "#91877d", "#b1a9a1", "#d3ceca", "#f2f0ee"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Archive Brown",
+        "canonical": "#9a5735",
+        "tonalRamp": ["#35180c", "#582817", "#7d3d22", "#9a5735", "#b87450", "#d49a7a", "#e9c3aa", "#f8ede5"]
+      },
+      "accent-bright": {
+        "role": "primary",
+        "displayName": "Bright Terracotta",
+        "canonical": "#bd744d",
+        "tonalRamp": ["#3a1b0f", "#60301d", "#87472d", "#ad623f", "#c9825d", "#dea58a", "#efcbb9", "#faeee8"]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Soft Terracotta",
+        "canonical": "#a16d51",
+        "tonalRamp": ["#332018", "#54362a", "#764d3b", "#966650", "#b4826b", "#cea491", "#e5c8ba", "#f7efeb"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Display",
+        "purpose": "Page-level titles and the Chinese name in the profile rail."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Research, experience, honors and long-form section headings."
+      },
+      "title": {
+        "displayName": "Project Title",
+        "purpose": "Research projects, organizations and nested project names."
+      },
+      "body": {
+        "displayName": "Reading Body",
+        "purpose": "Descriptions, evidence, limitations and supporting information."
+      },
+      "lead": {
+        "displayName": "Editorial Lead",
+        "purpose": "Opening profile and page introductions with a constrained reading measure."
+      },
+      "label": {
+        "displayName": "Archive Label",
+        "purpose": "Dates, numbered section markers, metadata and compact navigation."
+      }
+    },
+    "shadows": [
+      {
+        "name": "reading-progress-glow",
+        "value": "0 0 15px rgba(189, 116, 77, .55)",
+        "purpose": "Only for the two-pixel reading progress indicator in the dark rail."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-editorial",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "Underlines, small accent reveals and restrained spatial transitions."
+      },
+      {
+        "name": "ease-page-wash",
+        "value": "cubic-bezier(.76, 0, .24, 1)",
+        "purpose": "LCX page opening and same-origin page transitions only."
+      },
+      {
+        "name": "duration-feedback",
+        "value": "180ms-350ms",
+        "purpose": "Hover, focus and compact control feedback."
+      },
+      {
+        "name": "archive-cursor-follow",
+        "value": "requestAnimationFrame, 0.16 interpolation",
+        "purpose": "Desktop fine-pointer reticle following; context labels state link intent without obscuring content."
+      },
+      {
+        "name": "archive-click-stamp",
+        "value": "420ms cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "Single double-ring confirmation after a primary pointer press; disabled on touch and reduced-motion paths."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "profile-stack",
+        "value": "960px",
+        "purpose": "Convert the fixed profile rail and timeline grids into a single-column mobile document."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "LCX Monogram",
+      "kind": "custom",
+      "refersTo": "monogram",
+      "description": "Circular author mark used once in the profile rail.",
+      "html": "<a class=\"ds-monogram\" href=\"#\" aria-label=\"返回首页\">LCX</a>",
+      "css": ".ds-monogram { display:grid; place-items:center; width:68px; height:68px; border:1px solid rgba(232,224,210,.72); border-radius:50%; background:var(--rail,#242522); color:var(--rail-ink,#e8e0d2); font:700 17px/1 SFMono-Regular,Consolas,monospace; letter-spacing:-.08em; text-decoration:none; } .ds-monogram:hover { color:#fff; border-color:var(--accent-bright,#bd744d); } .ds-monogram:focus-visible { outline:2px solid var(--accent-bright,#bd744d); outline-offset:3px; }"
+    },
+    {
+      "name": "Mobile Menu Button",
+      "kind": "button",
+      "refersTo": "mobile-menu",
+      "description": "Plain-language MENU/CLOSE control for the stacked profile header.",
+      "html": "<button class=\"ds-menu\" type=\"button\" aria-expanded=\"false\">MENU</button>",
+      "css": ".ds-menu { display:grid; place-items:center; min-width:44px; min-height:44px; padding:7px 9px; border:1px solid rgba(232,224,210,.34); border-radius:999px; background:transparent; color:var(--rail-ink,#e8e0d2); font:700 9px SFMono-Regular,Consolas,monospace; letter-spacing:.06em; } .ds-menu:hover { border-color:var(--accent-bright,#bd744d); } .ds-menu:focus-visible { outline:2px solid var(--accent-bright,#bd744d); outline-offset:3px; }"
+    },
+    {
+      "name": "Section Kicker",
+      "kind": "custom",
+      "description": "Numbered archive marker introducing one major document section.",
+      "html": "<p class=\"ds-kicker\">02 / Research</p>",
+      "css": ".ds-kicker { display:inline-flex; align-items:center; gap:9px; margin:0; color:var(--accent,#9a5735); font:700 10px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.16em; text-transform:uppercase; } .ds-kicker::after { content:\"\"; width:32px; height:1px; background:currentColor; }"
+    },
+    {
+      "name": "Timeline Entry",
+      "kind": "custom",
+      "refersTo": "timeline-entry",
+      "description": "Open, border-separated research or experience record with a date column.",
+      "html": "<article class=\"ds-entry\"><time>2026.03—Present</time><div><h3>研究项目标题</h3><p>项目角色与说明。</p></div></article>",
+      "css": ".ds-entry { display:grid; grid-template-columns:156px minmax(0,1fr); gap:30px; padding:25px 7px 25px 0; border-bottom:1px solid rgba(66,57,49,.18); color:var(--muted,#6d675f); transition:background .3s ease,padding .35s ease; } .ds-entry time { color:var(--soft,#726960); font:600 10px/1.6 SFMono-Regular,Consolas,monospace; white-space:nowrap; } .ds-entry h3 { margin:0 0 5px; color:var(--ink,#292824); font:500 18px/1.48 Georgia,serif; } .ds-entry p { margin:0; font-size:13px; line-height:1.86; } .ds-entry:hover { padding-left:10px; background:linear-gradient(90deg,rgba(154,87,53,.055),transparent 72%); }"
+    },
+    {
+      "name": "Inline Evidence Link",
+      "kind": "custom",
+      "description": "Compact project-detail or repository link with a directional underline.",
+      "html": "<a class=\"ds-inline-link\" href=\"#\">查看研究项目详情 →</a>",
+      "css": ".ds-inline-link { position:relative; color:#744128; font:700 11px/1.6 SFMono-Regular,Consolas,monospace; text-decoration:none; } .ds-inline-link::after { content:\"\"; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:currentColor; transform:scaleX(.15); transform-origin:left; transition:transform .45s cubic-bezier(.22,1,.36,1); } .ds-inline-link:hover::after { transform:scaleX(1); } .ds-inline-link:focus-visible { outline:2px solid var(--accent-bright,#bd744d); outline-offset:3px; }"
+    },
+    {
+      "name": "Profile Navigation Link",
+      "kind": "nav",
+      "description": "Numbered rail navigation with subdued default and clear active state.",
+      "html": "<a class=\"ds-nav-link is-active\" href=\"#\"><span>01</span>About</a>",
+      "css": ".ds-nav-link { display:grid; grid-template-columns:25px 1fr; align-items:center; min-height:27px; color:rgba(232,224,210,.58); font:700 11px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.05em; text-decoration:none; transition:color .25s ease,transform .25s ease; } .ds-nav-link span { color:rgba(232,224,210,.22); font-size:8px; } .ds-nav-link:hover { color:var(--rail-ink,#e8e0d2); transform:translateX(3px); } .ds-nav-link.is-active { color:#fff; } .ds-nav-link:focus-visible { outline:2px solid var(--accent-bright,#bd744d); outline-offset:3px; }"
+    },
+    {
+      "name": "Archive Reticle Cursor",
+      "kind": "custom",
+      "description": "Fine-pointer-only archive reticle with contextual destination labels and one-shot click stamp feedback.",
+      "html": "<div class=\"cursor-ring\" aria-hidden=\"true\"><span class=\"cursor-label\">READ</span></div>",
+      "css": ".cursor-ring { width:30px; height:30px; color:var(--accent,#9a5735); background:linear-gradient(currentColor,currentColor) 50% 0/1px 7px no-repeat,linear-gradient(currentColor,currentColor) 100% 50%/7px 1px no-repeat,linear-gradient(currentColor,currentColor) 50% 100%/1px 7px no-repeat,linear-gradient(currentColor,currentColor) 0 50%/7px 1px no-repeat; } .cursor-label { font:700 8px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.14em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Research Dossier / 研究档案",
+    "overview": "网站像一份持续更新的个人研究档案，而不是演示文稿、产品宣传页或卡片式作品集。深色资料栏保存稳定身份，暖色正文区域连续展开研究、实习、荣誉与笔记。视觉兴趣来自字体关系、纸张质感、时间线、细线和少量棕色强调，内容始终先于效果。",
+    "keyCharacteristics": [
+      "深色资料栏与暖色连续正文形成稳定双区结构。",
+      "研究和实习按时间线组织，详细页面保持长文阅读逻辑。",
+      "衬线标题、无衬线正文和等宽元信息各司其职。",
+      "棕色强调保持稀少且具有信息作用。",
+      "动画不能遮挡或延迟阅读。"
+      ,"桌面光标以档案刻度和简短去向标签提供反馈，点击只出现一次轻量印章。"
+    ],
+    "rules": [
+      {
+        "name": "The Sparse Accent Rule",
+        "body": "棕色强调必须有信息作用；同一视口内不同时制造多个棕色视觉中心。",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Surface Rule",
+        "body": "页面只保留深色资料栏和暖纸正文两种主表面。",
+        "section": "colors"
+      },
+      {
+        "name": "The Three-Voice Rule",
+        "body": "每类文字只使用衬线标题、无衬线正文、等宽元信息中的一种明确角色。",
+        "section": "typography"
+      },
+      {
+        "name": "The Continuous Document Rule",
+        "body": "主页面依靠标题、时间、细线和留白分节，不使用等高卡片网格或满屏分镜。",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "静态内容保持平面；阴影、光晕和位移只用于状态反馈或签名细节。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 保留左侧身份资料与右侧连续研究档案的明确分工。",
+      "Do 用时间、角色、方法、结果、限制和公开链接组织项目内容。",
+      "Do 在桌面与手机端同时检查首屏、长标题、44px 触控目标和 200% 缩放。"
+    ],
+    "donts": [
+      "Don't 使用 PPT 式满屏分段或巨型口号。",
+      "Don't 将所有内容改成圆角卡片矩阵。",
+      "Don't 使用与学术档案无关的紫蓝渐变、玻璃拟态或霓虹光效。",
+      "Don't 让动画遮挡、延迟或反复打断阅读。"
+    ]
+  }
+}

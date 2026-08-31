@@ -183,12 +183,16 @@
     var glow = document.createElement('div');
     var dot = document.createElement('div');
     var ring = document.createElement('div');
+    var label = document.createElement('span');
     glow.className = 'pointer-glow';
     dot.className = 'cursor-dot';
     ring.className = 'cursor-ring';
+    label.className = 'cursor-label';
     glow.setAttribute('aria-hidden', 'true');
     dot.setAttribute('aria-hidden', 'true');
     ring.setAttribute('aria-hidden', 'true');
+    label.setAttribute('aria-hidden', 'true');
+    ring.appendChild(label);
     body.append(glow, dot, ring);
     body.classList.add('custom-cursor-enabled');
 
@@ -197,22 +201,96 @@
     var ringX = targetX;
     var ringY = targetY;
 
+    var getTargetElement = function (target) {
+      if (target && target.closest) return target;
+      return target && target.parentElement ? target.parentElement : null;
+    };
+
+    var getPointerLabel = function (target) {
+      var anchor = target.closest('a[href]');
+      var button = target.closest('button');
+
+      if (anchor) {
+        var href = anchor.getAttribute('href') || '';
+        if (anchor.classList.contains('monogram')) return 'HOME';
+        if (/^mailto:/i.test(href)) return 'MAIL';
+        if (/github\.com/i.test(anchor.href)) return 'CODE';
+        if (/orcid\.org/i.test(anchor.href)) return 'ID';
+        if (anchor.closest('.profile-nav')) return 'GO';
+
+        try {
+          var url = new URL(anchor.href, window.location.href);
+          if (url.origin === window.location.origin) {
+            return url.pathname === window.location.pathname && url.hash ? 'GO' : 'READ';
+          }
+        } catch (error) {
+          return 'OPEN';
+        }
+
+        return 'OPEN';
+      }
+
+      if (target.closest('summary')) return 'INFO';
+      if (button && button.classList.contains('mobile-menu-button')) return 'MENU';
+      if (button && button.closest('.print-action')) return 'PRINT';
+      if (button) return 'SELECT';
+      return '';
+    };
+
     window.addEventListener('pointermove', function (event) {
+      var target = getTargetElement(event.target);
+      if (!target) return;
+
       targetX = event.clientX;
       targetY = event.clientY;
       root.style.setProperty('--pointer-x', targetX + 'px');
       root.style.setProperty('--pointer-y', targetY + 'px');
       dot.style.left = targetX + 'px';
       dot.style.top = targetY + 'px';
+
+      var interactive = target.closest('a, button, summary');
+      var pointerLabel = getPointerLabel(target);
+      var overText = !interactive && Boolean(target.closest(
+        'p, h1, h2, h3, h4, li, td, th, code, time, strong, em, blockquote, span'
+      ));
+
+      label.textContent = pointerLabel;
       body.classList.add('pointer-active');
-      body.classList.toggle(
-        'pointer-link',
-        Boolean(event.target.closest('a, button, summary, .dated-entry, .note-entry, .skill-group'))
-      );
+      body.classList.toggle('pointer-link', Boolean(interactive));
+      body.classList.toggle('pointer-label', Boolean(pointerLabel));
+      body.classList.toggle('pointer-on-rail', Boolean(target.closest('.profile-rail')));
+      body.classList.toggle('pointer-text', overText);
+    }, { passive: true });
+
+    window.addEventListener('pointerdown', function (event) {
+      if (!event.isPrimary || event.button !== 0) return;
+
+      var target = getTargetElement(event.target);
+      var stamp = document.createElement('span');
+      stamp.className = 'cursor-stamp';
+      if (target && target.closest('.profile-rail')) stamp.classList.add('is-on-rail');
+      stamp.setAttribute('aria-hidden', 'true');
+      stamp.style.left = event.clientX + 'px';
+      stamp.style.top = event.clientY + 'px';
+      body.appendChild(stamp);
+
+      var removeStamp = function () {
+        if (stamp.parentNode) stamp.parentNode.removeChild(stamp);
+      };
+
+      stamp.addEventListener('animationend', removeStamp, { once: true });
+      window.setTimeout(removeStamp, 520);
     }, { passive: true });
 
     document.documentElement.addEventListener('mouseleave', function () {
-      body.classList.remove('pointer-active', 'pointer-link');
+      label.textContent = '';
+      body.classList.remove(
+        'pointer-active',
+        'pointer-link',
+        'pointer-label',
+        'pointer-on-rail',
+        'pointer-text'
+      );
     });
 
     var animateRing = function () {
