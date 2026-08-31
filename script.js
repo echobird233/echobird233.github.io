@@ -12,6 +12,7 @@
   initReadingProgress();
   initRevealMotion();
   initSectionTracking();
+  initDossierProgress();
 
   if (!reduceMotion) {
     initPageOpening();
@@ -134,6 +135,35 @@
     sections.forEach(function (section) {
       observer.observe(section);
     });
+  }
+
+  function initDossierProgress() {
+    var progress = document.querySelector('.dossier-progress');
+    var sections = Array.from(document.querySelectorAll('[data-progress-label]'));
+
+    if (!progress || sections.length < 2) return;
+
+    var current = progress.querySelector('[data-progress-current]');
+    var total = progress.querySelector('[data-progress-total]');
+    var fill = progress.querySelector('[data-progress-fill]');
+    var title = progress.querySelector('[data-progress-title]');
+    var update = function () {
+      var threshold = Math.min(window.innerHeight * .3, 250);
+      var activeIndex = 0;
+
+      sections.forEach(function (section, index) {
+        if (section.getBoundingClientRect().top <= threshold) activeIndex = index;
+      });
+
+      current.textContent = String(activeIndex + 1).padStart(2, '0');
+      total.textContent = String(sections.length).padStart(2, '0');
+      title.textContent = sections[activeIndex].getAttribute('data-progress-label');
+      fill.style.width = (((activeIndex + 1) / sections.length) * 100).toFixed(2) + '%';
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
   }
 
   function initPageOpening() {

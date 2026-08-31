@@ -33,14 +33,21 @@
       </aside>
 
       <main id="main-content" class="document">
-        <section class="document-section">
+        <section class="document-section" data-progress-label="Overview">
           <p class="section-kicker">Experience / Internship</p>
           <h1>Experience</h1>
           <p class="lead">2026年7月15日至今，我在上海苦芽科技有限公司参加线上实习，工作内容以开源项目调研、环境搭建、实验验证和技术文档为主。实习期间整理了 ROS 2 激光 SLAM 和 Pixi RISC-V 支持验证两个公开项目。</p>
           <article class="dated-entry"><time class="entry-date" datetime="2026-07-15">2026.07.15—Present</time><div class="entry-content"><h3>上海苦芽科技有限公司</h3><p class="entry-role">开源软件开发及维护 · 线上远程</p><p>两个项目的代码、实验记录和使用说明均已发布在 GitHub。</p></div></article>
         </section>
 
-        <section id="ros2" class="document-section prose">
+        <div class="dossier-progress" aria-hidden="true">
+          <span class="dossier-progress-label">PROGRESS</span>
+          <span class="dossier-progress-count"><span data-progress-current>01</span> / <span data-progress-total>03</span></span>
+          <span class="dossier-progress-track"><span data-progress-fill></span></span>
+          <span class="dossier-progress-title" data-progress-title>Overview</span>
+        </div>
+
+        <section id="ros2" class="document-section prose" data-progress-label="ROS 2 SLAM">
           <p class="section-kicker">01 / ROS 2</p>
           <h2>ROS 2 激光 SLAM 调研与复现实验</h2>
           <p class="entry-meta">ROS 2 Jazzy · Gazebo Harmonic · RViz2 · Nav2 · slam_toolbox</p>
@@ -52,7 +59,7 @@
           <div class="inline-links"><a href="https://github.com/echobird233/ros2-lidar-slam-study" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
         </section>
 
-        <section id="pixi" class="document-section prose">
+        <section id="pixi" class="document-section prose" data-progress-label="Pixi RISC-V">
           <p class="section-kicker">02 / RISC-V</p>
           <h2>Pixi RISC-V 支持验证与计算机视觉应用</h2>
           <p class="entry-meta">QEMU RISC-V · Ubuntu 24.04 · Pixi 0.73.0 · OpenCV · ONNX</p>

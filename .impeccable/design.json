@@ -123,6 +123,11 @@
         "name": "archive-click-stamp",
         "value": "420ms cubic-bezier(.22, 1, .36, 1)",
         "purpose": "Single double-ring confirmation after a primary pointer press; disabled on touch and reduced-motion paths."
+      },
+      {
+        "name": "archive-section-reveal",
+        "value": "550ms line scaleX + 500ms heading translateY",
+        "purpose": "A restrained dossier marker that establishes the beginning of a readable section."
       }
     ],
     "breakpoints": [
@@ -185,6 +190,20 @@
       "description": "Fine-pointer-only 30px ring and 5px center dot with contextual destination labels and one-shot click stamp feedback. The custom cursor remains visible over text.",
       "html": "<div class=\"cursor-ring\" aria-hidden=\"true\"><span class=\"cursor-label\">READ</span></div>",
       "css": ".cursor-ring { width:30px; height:30px; color:var(--accent,#9a5735); border:1px solid currentColor; border-radius:50%; } .cursor-label { font:700 8px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.14em; }"
+    },
+    {
+      "name": "Dossier Progress",
+      "kind": "custom",
+      "description": "Sticky detail-page chapter marker showing the current section, total sections, and reading progress.",
+      "html": "<div class=\"dossier-progress\" aria-hidden=\"true\"><span>PROGRESS</span><span>01 / 05</span><span class=\"dossier-progress-track\"><span></span></span><span>Overview</span></div>",
+      "css": ".dossier-progress { display:grid; grid-template-columns:auto auto minmax(70px,120px) minmax(110px,1fr); gap:10px; padding:8px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--paper); font:600 9px/1.4 SFMono-Regular,Consolas,monospace; text-transform:uppercase; } .dossier-progress-track { height:1px; background:rgba(154,87,53,.2); }"
+    },
+    {
+      "name": "Entry Evidence Strip",
+      "kind": "custom",
+      "description": "Inline metadata strip that brightens on entry hover or focus to preview the evidence behind a project record.",
+      "html": "<div class=\"entry-evidence\"><span class=\"entry-evidence-label\">EVIDENCE</span><span class=\"entry-evidence-value\">KITTI · HOTA 81.448 · 论文草稿</span></div>",
+      "css": ".entry-evidence { display:flex; gap:4px 9px; margin-top:14px; padding-top:8px; border-top:1px solid var(--line); font:600 10px/1.5 SFMono-Regular,Consolas,monospace; } .entry-evidence-value { opacity:.52; transform:translateX(-4px); transition:opacity .24s ease,transform .3s cubic-bezier(.22,1,.36,1); }"
     }
   ],
   "narrative": {
@@ -197,6 +216,7 @@
       "棕色强调保持稀少且具有信息作用。",
       "动画不能遮挡或延迟阅读。"
       ,"桌面光标以圆环、中心点和简短去向标签提供反馈，经过正文时保持可见，点击只出现一次轻量印章。"
+      ,"详情页用章节进度线和条目证据元信息提示阅读位置与项目依据。"
     ],
     "rules": [
       {

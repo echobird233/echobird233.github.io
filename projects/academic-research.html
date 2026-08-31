@@ -33,13 +33,20 @@
       </aside>
 
       <main id="main-content" class="document">
-        <section class="document-section">
+        <section class="document-section" data-progress-label="Overview">
           <p class="section-kicker">Research / Dossier</p>
           <h1>Academic research</h1>
           <p class="lead">这里按时间整理我参与的科研项目。2026 年 3 月起，我负责省级大学生创新训练项目“三维重建与运动轨迹估计算法研究”。在此之前，我参加过智能会议系统和 Banach 不动点定理推广项目。目前两个三维运动研究子项目都已有论文草稿，但尚未投稿。</p>
         </section>
 
-        <section class="document-section">
+        <div class="dossier-progress" aria-hidden="true">
+          <span class="dossier-progress-label">PROGRESS</span>
+          <span class="dossier-progress-count"><span data-progress-current>01</span> / <span data-progress-total>05</span></span>
+          <span class="dossier-progress-track"><span data-progress-fill></span></span>
+          <span class="dossier-progress-title" data-progress-title>Overview</span>
+        </div>
+
+        <section class="document-section" data-progress-label="Current project">
           <p class="section-kicker">01 / Current</p>
           <h2>Current project</h2>
           <article class="dated-entry">
@@ -47,7 +54,7 @@
             <div class="entry-content"><h3>三维重建与运动轨迹估计算法研究</h3><p class="entry-role">省级大学生创新训练项目 · 第一负责人</p><p>这是我目前负责的省级大学生创新训练项目，包含 VeloODE-MOT 和轨迹预测专家路由两个子项目。两者均已有论文草稿，尚未投稿。</p></div>
           </article>
 
-          <div id="veloodemot" class="subsection prose">
+          <div id="veloodemot" class="subsection prose" data-progress-label="VeloODE-MOT">
             <h2>VeloODE-MOT</h2>
             <p class="entry-meta">Velocity-Latent Neural ODE Tracking for Robust 3D Multi-Object Tracking under Missing Observations</p>
             <p>三维多目标跟踪通常依赖逐帧检测结果。当目标被遮挡或者检测器暂时漏检时，跟踪器既得不到新的位置测量，也会失去用于数据关联的线索。预测位置偏差过大后，重新出现的目标可能被分配新的轨迹编号。</p>
@@ -59,7 +66,7 @@
             <span class="status-note">论文草稿，尚未投稿</span>
           </div>
 
-          <div id="expert-routing" class="subsection prose">
+          <div id="expert-routing" class="subsection prose" data-progress-label="Expert routing">
             <h2>Scenario-adaptive expert routing</h2>
             <p class="entry-meta">场景自适应的运动条件 / 地图条件轨迹预测专家路由</p>
             <p>地图条件预测器并不是在每个样本上都优于恒速度预测。有些目标近期运动比较稳定，只用历史轨迹就能得到较好的结果；另一些目标的未来运动与道路结构关系更大。</p>
@@ -71,7 +78,7 @@
           </div>
         </section>
 
-        <section class="document-section">
+        <section class="document-section" data-progress-label="Earlier work">
           <p class="section-kicker">02 / Earlier</p>
           <h2>Earlier work</h2>
           <article id="meeting-system" class="dated-entry">
