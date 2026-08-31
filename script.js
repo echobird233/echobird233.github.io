@@ -250,16 +250,12 @@
 
       var interactive = target.closest('a, button, summary');
       var pointerLabel = getPointerLabel(target);
-      var overText = !interactive && Boolean(target.closest(
-        'p, h1, h2, h3, h4, li, td, th, code, time, strong, em, blockquote, span'
-      ));
 
       label.textContent = pointerLabel;
       body.classList.add('pointer-active');
       body.classList.toggle('pointer-link', Boolean(interactive));
       body.classList.toggle('pointer-label', Boolean(pointerLabel));
       body.classList.toggle('pointer-on-rail', Boolean(target.closest('.profile-rail')));
-      body.classList.toggle('pointer-text', overText);
     }, { passive: true });
 
     window.addEventListener('pointerdown', function (event) {
@@ -288,8 +284,7 @@
         'pointer-active',
         'pointer-link',
         'pointer-label',
-        'pointer-on-rail',
-        'pointer-text'
+        'pointer-on-rail'
       );
     });
 

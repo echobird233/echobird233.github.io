@@ -117,7 +117,7 @@
       {
         "name": "archive-cursor-follow",
         "value": "requestAnimationFrame, 0.16 interpolation",
-        "purpose": "Desktop fine-pointer reticle following; context labels state link intent without obscuring content."
+        "purpose": "Desktop fine-pointer ring following; context labels state link intent without obscuring content."
       },
       {
         "name": "archive-click-stamp",
@@ -180,11 +180,11 @@
       "css": ".ds-nav-link { display:grid; grid-template-columns:25px 1fr; align-items:center; min-height:27px; color:rgba(232,224,210,.58); font:700 11px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.05em; text-decoration:none; transition:color .25s ease,transform .25s ease; } .ds-nav-link span { color:rgba(232,224,210,.22); font-size:8px; } .ds-nav-link:hover { color:var(--rail-ink,#e8e0d2); transform:translateX(3px); } .ds-nav-link.is-active { color:#fff; } .ds-nav-link:focus-visible { outline:2px solid var(--accent-bright,#bd744d); outline-offset:3px; }"
     },
     {
-      "name": "Archive Reticle Cursor",
+      "name": "Archive Ring Cursor",
       "kind": "custom",
-      "description": "Fine-pointer-only archive reticle with contextual destination labels and one-shot click stamp feedback.",
+      "description": "Fine-pointer-only 30px ring and 5px center dot with contextual destination labels and one-shot click stamp feedback. The custom cursor remains visible over text.",
       "html": "<div class=\"cursor-ring\" aria-hidden=\"true\"><span class=\"cursor-label\">READ</span></div>",
-      "css": ".cursor-ring { width:30px; height:30px; color:var(--accent,#9a5735); background:linear-gradient(currentColor,currentColor) 50% 0/1px 7px no-repeat,linear-gradient(currentColor,currentColor) 100% 50%/7px 1px no-repeat,linear-gradient(currentColor,currentColor) 50% 100%/1px 7px no-repeat,linear-gradient(currentColor,currentColor) 0 50%/7px 1px no-repeat; } .cursor-label { font:700 8px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.14em; }"
+      "css": ".cursor-ring { width:30px; height:30px; color:var(--accent,#9a5735); border:1px solid currentColor; border-radius:50%; } .cursor-label { font:700 8px/1 SFMono-Regular,Consolas,monospace; letter-spacing:.14em; }"
     }
   ],
   "narrative": {
@@ -196,7 +196,7 @@
       "衬线标题、无衬线正文和等宽元信息各司其职。",
       "棕色强调保持稀少且具有信息作用。",
       "动画不能遮挡或延迟阅读。"
-      ,"桌面光标以档案刻度和简短去向标签提供反馈，点击只出现一次轻量印章。"
+      ,"桌面光标以圆环、中心点和简短去向标签提供反馈，经过正文时保持可见，点击只出现一次轻量印章。"
     ],
     "rules": [
       {

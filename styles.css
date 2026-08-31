@@ -761,25 +761,12 @@ body.pointer-active .pointer-glow { opacity: 1; }
 .cursor-ring {
   width: 30px;
   height: 30px;
-  background:
-    linear-gradient(currentColor, currentColor) 50% 0 / 1px 7px no-repeat,
-    linear-gradient(currentColor, currentColor) 100% 50% / 7px 1px no-repeat,
-    linear-gradient(currentColor, currentColor) 50% 100% / 1px 7px no-repeat,
-    linear-gradient(currentColor, currentColor) 0 50% / 7px 1px no-repeat;
+  border: 1px solid currentColor;
   transform: translate(-50%, -50%);
   transition: width .24s cubic-bezier(.22, 1, .36, 1),
     height .24s cubic-bezier(.22, 1, .36, 1),
     color .18s ease,
     opacity .18s ease;
-}
-
-.cursor-ring::before {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  opacity: .42;
 }
 
 .cursor-label {
@@ -814,8 +801,6 @@ body.pointer-link .cursor-ring {
   height: 44px;
 }
 
-body.pointer-link .cursor-ring::before { inset: 13px; }
-
 body.pointer-label .cursor-label {
   opacity: 1;
   transform: translate(0, -50%);
@@ -823,10 +808,6 @@ body.pointer-label .cursor-label {
 
 body.pointer-on-rail .cursor-dot,
 body.pointer-on-rail .cursor-ring { color: var(--accent-bright); }
-
-body.pointer-text .pointer-glow,
-body.pointer-text .cursor-dot,
-body.pointer-text .cursor-ring { opacity: 0; }
 
 .cursor-stamp {
   position: fixed;
@@ -870,21 +851,6 @@ body.pointer-text .cursor-ring { opacity: 0; }
 
 body.custom-cursor-enabled,
 body.custom-cursor-enabled * { cursor: none !important; }
-
-body.custom-cursor-enabled.pointer-text p,
-body.custom-cursor-enabled.pointer-text h1,
-body.custom-cursor-enabled.pointer-text h2,
-body.custom-cursor-enabled.pointer-text h3,
-body.custom-cursor-enabled.pointer-text h4,
-body.custom-cursor-enabled.pointer-text li,
-body.custom-cursor-enabled.pointer-text td,
-body.custom-cursor-enabled.pointer-text th,
-body.custom-cursor-enabled.pointer-text code,
-body.custom-cursor-enabled.pointer-text time,
-body.custom-cursor-enabled.pointer-text strong,
-body.custom-cursor-enabled.pointer-text em,
-body.custom-cursor-enabled.pointer-text blockquote,
-body.custom-cursor-enabled.pointer-text span { cursor: text !important; }
 
 .page-wash {
   position: fixed;
