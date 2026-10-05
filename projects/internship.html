@@ -29,7 +29,7 @@
         </div>
         <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
         <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/">About</a><a href="/projects/academic-research.html">Research</a><a href="/projects/internship.html" aria-current="page">Experience</a><a href="/#honors">Honors</a><a href="/resume.html">CV</a><a href="/articles/">Notes</a></nav>
-        <p class="profile-foot">Last updated · 2026.08<br>luchunxiang.cn</p>
+        <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
       </aside>
 
       <main id="main-content" class="document">
@@ -37,7 +37,7 @@
           <p class="section-kicker">Experience / Internship</p>
           <h1>Experience</h1>
           <p class="lead">2026年7月15日至今，我在上海苦芽科技有限公司参加线上实习，工作内容以开源项目调研、环境搭建、实验验证和技术文档为主。实习期间整理了 ROS 2 激光 SLAM 和 Pixi RISC-V 支持验证两个公开项目。</p>
-          <article class="dated-entry"><time class="entry-date" datetime="2026-07-15">2026.07.15—Present</time><div class="entry-content"><h3>上海苦芽科技有限公司</h3><p class="entry-role">开源软件开发及维护 · 线上远程</p><p>两个项目的代码、实验记录和使用说明均已发布在 GitHub。</p></div></article>
+          <article class="dated-entry"><time class="entry-date" datetime="2026-07-15">2026.07.15—Present</time><div class="entry-content"><h3>上海苦芽科技有限公司</h3><p class="entry-role">开源软件开发及维护 · 线上远程</p><p>负责仿真环境搭建、坐标变换和导航数据检查、仓库路线设计、地图与路径记录、实验验证及文档整理。两个项目的代码、实验记录和使用说明均已发布在 GitHub。</p></div></article>
         </section>
 
         <div class="dossier-progress" aria-hidden="true">
@@ -51,6 +51,7 @@
           <p class="section-kicker">01 / ROS 2</p>
           <h2>ROS 2 激光 SLAM 调研与复现实验</h2>
           <p class="entry-meta">ROS 2 Jazzy · Gazebo Harmonic · RViz2 · Nav2 · slam_toolbox</p>
+          <p>在进入实习项目前，我在张莉老师课题组学习 SLAM 基础，跟随高翔《视觉 SLAM 十四讲》的内容完成基础学习，并在指导下进行过简单的程序编写。这段经历为后续的 ROS 2 激光 SLAM 调研和仿真实验提供了背景。</p>
           <p>这个项目没有实现新的 SLAM 算法，主要工作是搭建并测试一套 ROS 2 二维激光建图和导航流程。实验环境为 WSL2 Ubuntu 24.04、ROS 2 Jazzy、Gazebo Harmonic、TurtleBot3、slam_toolbox 和 Nav2。</p>
           <p>我先运行官方 TurtleBot3 仿真环境，检查 <code>/scan</code>、<code>/odom</code>、TF、<code>/map</code> 和导航 action 是否正常。之后搭建方形房间和仓库房间，编写导航目标脚本，记录地图、扫描数据、机器人路径和运行日志。</p>
           <p>方形房间实验完成了 6 次导航，6 次均成功，自由空间覆盖率为 0.9291。这个数值只表示机器人经过区域的覆盖情况，不代表地图精度。</p>
