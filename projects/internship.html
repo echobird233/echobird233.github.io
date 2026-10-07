@@ -51,12 +51,12 @@
           <p class="section-kicker">01 / ROS 2</p>
           <h2>ROS 2 激光 SLAM 调研与复现实验</h2>
           <p class="entry-meta">ROS 2 Jazzy · Gazebo Harmonic · RViz2 · Nav2 · slam_toolbox</p>
-          <p>在进入实习项目前，我在张莉老师课题组学习 SLAM 基础，跟随高翔《视觉 SLAM 十四讲》的内容完成基础学习，并在指导下进行过简单的程序编写。这段经历为后续的 ROS 2 激光 SLAM 调研和仿真实验提供了背景。</p>
-          <p>这个项目没有实现新的 SLAM 算法，主要工作是搭建并测试一套 ROS 2 二维激光建图和导航流程。实验环境为 WSL2 Ubuntu 24.04、ROS 2 Jazzy、Gazebo Harmonic、TurtleBot3、slam_toolbox 和 Nav2。</p>
+          <p>大二期间，我在张莉老师课题组学习 SLAM，读完高翔《视觉 SLAM 十四讲》的基础章节，并在指导下编写过简单程序。</p>
+          <p>项目工作集中在 ROS 2 二维激光建图和导航流程的搭建与测试。实验环境为 WSL2 Ubuntu 24.04、ROS 2 Jazzy、Gazebo Harmonic、TurtleBot3、slam_toolbox 和 Nav2。</p>
           <p>我先运行官方 TurtleBot3 仿真环境，检查 <code>/scan</code>、<code>/odom</code>、TF、<code>/map</code> 和导航 action 是否正常。之后搭建方形房间和仓库房间，编写导航目标脚本，记录地图、扫描数据、机器人路径和运行日志。</p>
-          <p>方形房间实验完成了 6 次导航，6 次均成功，自由空间覆盖率为 0.9291。这个数值只表示机器人经过区域的覆盖情况，不代表地图精度。</p>
-          <p>仓库房间的第一版路线只有 2/7 个目标成功。检查后发现，脚本混用了 world 坐标和 map 坐标。按照机器人初始位姿重新换算目标点后，第二版路线达到 10/10，地图也成功保存。后续实验记录了 378 帧激光扫描；另一次原生采集运行了约 464 秒，同样完成 10/10 个导航目标并保存地图。</p>
-          <div class="evidence-note"><strong>当前限制：</strong>结果来自仿真环境，没有进行真实机器人测试，也没有计算 ATE、RPE 或障碍边界误差。部分视频和 topic 记录仍不完整，这些情况会继续保留在仓库的实验说明中。</div>
+          <p>方形房间实验完成了 6 次导航，全部成功，自由空间覆盖率为 0.9291。覆盖率按机器人经过区域统计。</p>
+          <p>仓库房间的第一版路线完成 2/7 个导航目标。检查发现脚本混用了 world 坐标和 map 坐标。按照机器人初始位姿重新换算目标点后，第二版路线完成 10/10 个目标并保存地图。后续实验记录了 378 帧激光扫描；另一次原生采集运行约 464 秒，同样完成 10/10 个导航目标并保存地图。</p>
+          <div class="evidence-note"><strong>实验条件：</strong>以上结果来自仿真环境。仓库保存了地图、路径、运行日志和激光扫描数据。</div>
           <div class="inline-links"><a href="https://github.com/echobird233/ros2-lidar-slam-study" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
         </section>
 
@@ -65,14 +65,13 @@
           <h2>Pixi RISC-V 支持验证与计算机视觉应用</h2>
           <p class="entry-meta">QEMU RISC-V · Ubuntu 24.04 · Pixi 0.73.0 · OpenCV · ONNX</p>
           <p>这个项目在 QEMU 模拟的 RISC-V 64 位 Ubuntu 24.04 环境中测试 Pixi 0.73.0。我负责虚拟机配置、Pixi 安装验证、任务文件编写、计算机视觉示例、性能记录和实验报告。</p>
-          <p>Pixi 的 RISC-V 二进制文件可以直接安装，<code>pixi init</code>、<code>pixi run</code>、<code>pixi info</code> 和任务列表功能也能正常使用。不过，conda-forge 当时没有可用的 <code>linux-riscv64</code> Python、NumPy 和 OpenCV 软件包，因此项目依赖仍然通过 APT 安装。这里验证的是 Pixi 的安装和任务编排功能，不代表它已经能在 RISC-V 上完整管理 Python 环境。</p>
+          <p>Pixi 的 RISC-V 二进制文件可以直接安装，<code>pixi init</code>、<code>pixi run</code>、<code>pixi info</code> 和任务列表功能均可使用。conda-forge 当时缺少 <code>linux-riscv64</code> 的 Python、NumPy 和 OpenCV 软件包，因此项目依赖通过 APT 安装，Pixi 负责任务编排。</p>
           <p>我用 <code>pixi.toml</code> 组织了数据预处理、训练、评估、光流、ONNX 推理和基准测试任务。其中，多阶段示例可以按照依赖关系依次执行预处理、SVM 训练和评估。</p>
-          <p>Lucas–Kanade 光流实验使用 120 帧、640×480 的合成视频，跟踪 12 个角点，平均每帧耗时 3.39 毫秒。ONNX 示例使用随机初始化的轻量 CNN，稳态推理中位数为 1.08 毫秒。这两个实验用于确认算法和推理管线能够运行，不代表真实视频效果、分类准确率或物理 RISC-V 硬件性能。</p>
+          <p>Lucas–Kanade 光流实验使用 120 帧、640×480 的合成视频，跟踪 12 个角点，平均每帧耗时 3.39 毫秒。ONNX 示例使用随机初始化的轻量 CNN，稳态推理中位数为 1.08 毫秒。两项实验用于验证算法和推理管线的运行情况。</p>
           <table class="data-table"><thead><tr><th>验证项目</th><th>记录结果</th><th>说明</th></tr></thead><tbody><tr><td>Lucas–Kanade 光流</td><td>平均 3.39 ms/帧，约 279 FPS</td><td>120 帧，640×480，12 个角点</td></tr><tr><td>ONNX CNN 推理</td><td>稳态中位数 1.08 ms/张，约 880 张/秒</td><td>20 次预热后测试，模型约 37 KB</td></tr></tbody></table>
           <div class="inline-links"><a href="https://github.com/echobird233/pixi-riscv-vision-validation" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
         </section>
 
-        <p class="endnote">本页不包含协议文件、个人身份信息、联系人、地址和薪酬。</p>
       </main>
     </div>
     <script src="/script.js"></script>
