@@ -28,7 +28,7 @@
           <div class="profile-block"><p class="profile-label">Contact</p><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub · echobird233 ↗</a><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">2024213986@mail.hfut.edu.cn ↗</a></div>
         </div>
         <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
-        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/">About</a><a href="/projects/academic-research.html" aria-current="page">Research</a><a href="/projects/internship.html">Experience</a><a href="/#honors">Honors</a><a href="/resume.html">CV</a><a href="/articles/">Notes</a></nav>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/#about">About</a><a href="/#research" aria-current="page">Research</a><a href="/#experience">Experience</a><a href="/resume.html">CV</a></nav>
         <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
       </aside>
 
@@ -36,7 +36,7 @@
         <section class="document-section" data-progress-label="Overview">
           <p class="section-kicker">Research / Dossier</p>
           <h1>Academic research</h1>
-          <p class="lead">2026 年 3 月起，我负责省级大学生创新训练项目“三维重建与运动轨迹估计算法研究”。轨迹预测稿件曾投稿 Vehicles，目前正在补充实验并准备重投。VeloODE-MOT 计划完善实验后投稿 IEEE Robotics and Automation Letters。此前参与的智能会议系统和 Banach 不动点定理推广项目均已结项。</p>
+          <p class="lead">本科期间参与的研究涵盖三维多目标跟踪、车辆轨迹预测、智能会议系统和不动点理论。</p>
         </section>
 
         <div class="dossier-progress" aria-hidden="true">
@@ -51,19 +51,17 @@
           <h2>Current project</h2>
           <article class="dated-entry">
             <time class="entry-date">2026.03—Present</time>
-            <div class="entry-content"><h3>三维重建与运动轨迹估计算法研究</h3><p class="entry-role">省级大学生创新训练项目（重点支持领域）· 第一负责人</p><p>项目包含 VeloODE-MOT 和轨迹预测专家路由两个子项目。两项稿件均由独立第一作者完成，目前处于不同的实验和投稿阶段。</p></div>
+            <div class="entry-content"><h3>三维重建与运动轨迹估计算法研究</h3><p class="entry-role">省级大学生创新训练项目（重点支持领域）· 第一负责人</p><p>项目包含 PairGate3D 和轨迹预测专家路由两个子项目。</p></div>
           </article>
 
-          <div id="veloodemot" class="subsection prose" data-progress-label="VeloODE-MOT">
-            <h2>VeloODE-MOT</h2>
-            <p class="entry-meta">Velocity-Latent Neural ODE Tracking for Robust 3D Multi-Object Tracking under Missing Observations</p>
-            <p>三维多目标跟踪通常依赖逐帧检测结果。当目标被遮挡或者检测器暂时漏检时，跟踪器既得不到新的位置测量，也会失去用于数据关联的线索。预测位置偏差过大后，重新出现的目标可能被分配新的轨迹编号。</p>
-            <p>我以独立第一作者身份完成方法设计、代码实现、实验和论文稿件。VeloODE-MOT 是一套在线三维多目标跟踪系统。系统在检测缺失时使用连续时间模型预测目标运动；检测恢复后，输出重新使用检测框。同时，系统还包括两阶段几何关联、轨迹有效性判断和生命周期管理。</p>
-            <p>KITTI 实验包含两种设置。完整系统的 HOTA 为 81.448，历史 CasA-KF 系统为 76.783；两套系统在运动预测器之外还采用了不同的跟踪流程。统一跟踪框架中的预测器对比结果为 ODE 81.404、KF 81.524。</p>
-            <ul class="plain-list"><li>实验数据集：KITTI、V2V4Real、nuScenes。</li><li>研究问题：缺失观测下的运动传播、检测更新与轨迹管理。</li><li>当前状态：计划进一步完善实验后投稿 IEEE Robotics and Automation Letters（RA-L）；配套代码已整理至 GitHub 私有仓库。</li></ul>
-            <table class="data-table"><thead><tr><th>比较设置</th><th>VeloODE-MOT / ODE</th><th>参照</th><th>结果</th></tr></thead><tbody><tr><td>KITTI 历史完整系统</td><td>HOTA 81.448</td><td>历史 CasA-KF 76.783</td><td>完整系统 HOTA 较高</td></tr><tr><td>KITTI 匹配实验壳</td><td>ODE 81.404</td><td>KF 81.524</td><td>ODE HOTA 略低于 KF</td></tr></tbody></table>
-            <div class="evidence-note"><strong>跨数据集实验：</strong>V2V4Real 测试包含 3 个序列。nuScenes 的原生采样率为 2 Hz，检测器和场景分布与 KITTI 不同，当前设置在 nuScenes 中出现了较多误检。采样率、检测器、关联规则和轨迹输出策略共同影响结果。</div>
-            <span class="status-note">独立第一作者稿件 · 计划完善实验后投稿 IEEE RA-L · GitHub 私有仓库</span>
+          <div id="veloodemot" class="subsection prose" data-progress-label="PairGate3D">
+            <h2>PairGate3D</h2>
+            <p class="entry-meta">PairGate3D: Score-Independent Geometric Gating for Online 3D Multi-Object Tracking</p>
+            <p>作者：Chunxiang Lu、Huidong Xu、Sixian Zhang。论文已被 2026 IEEE 8th International Conference on Robotics, Intelligent Control and Artificial Intelligence（IEEE-RICAI 2026）录用。</p>
+            <p>在线三维多目标跟踪需要将当前帧的检测结果与已有轨迹关联。PairGate3D 在分配前引入独立于轨迹分数的几何门控：当预测轨迹与检测框的三维中心距离较大、鸟瞰图重叠较低时，筛除该候选匹配；其余候选保留原有代价和排序。</p>
+            <p>系统结合 CA-KF 运动预测、两阶段数据关联和基于观测的状态更新。门控阈值可根据预测不确定性调整，也可针对目标场景校准。</p>
+            <p>在 KITTI Car 的 11 个留出序列上，几何门控提高了五种检测器输入下的 HOTA，其中 PointRCNN 提高 5.757 个百分点。论文还在 V2V4Real 和 nuScenes 上评估了自适应门控与场景校准。</p>
+            <span class="status-note">第一作者 · IEEE-RICAI 2026 已录用</span>
           </div>
 
           <div id="expert-routing" class="subsection prose" data-progress-label="Expert routing">
