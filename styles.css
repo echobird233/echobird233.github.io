@@ -396,7 +396,7 @@ summary:focus-visible {
 
 .research-lines {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1fr) minmax(0, 1.5fr);
   gap: 28px;
   margin-top: 29px;
   padding: 22px 0 0;
