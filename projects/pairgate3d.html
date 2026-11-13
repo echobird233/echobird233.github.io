@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PairGate3D｜卢春翔 Chunxiang Lu</title>
+    <meta name="description" content="PairGate3D：面向在线三维多目标跟踪的独立于分数的几何门控方法。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/pairgate3d.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="PairGate3D｜卢春翔 Chunxiang Lu">
+    <meta property="og:description" content="从数学理论到三维感知与运动建模的研究记录。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/pairgate3d.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="site-shell">
+      <aside class="profile-rail" aria-label="个人身份与导航">
+        <div class="profile-top">
+          <a class="monogram" href="/" aria-label="返回首页">LCX</a>
+          <div><p class="profile-name">卢春翔</p><p class="profile-name-en">Chunxiang Lu</p></div>
+          <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="profile-nav">MENU</button>
+          <p class="profile-role">Undergraduate Researcher<br>Information and Computing Science<br>Hefei University of Technology</p>
+        </div>
+        <div class="profile-desktop-details">
+          <div class="profile-block"><p class="profile-label">Author</p><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID · 0009-0001-8844-5017 ↗</a></div>
+          <div class="profile-block"><p class="profile-label">Contact</p><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub · echobird233 ↗</a><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">2024213986@mail.hfut.edu.cn ↗</a></div>
+        </div>
+        <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/#about">About</a><a href="/#research" aria-current="page">Research</a><a href="/#experience">Experience</a><a href="/resume.html">CV</a></nav>
+        <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
+      </aside>
+
+      <main id="main-content" class="document">
+        <section class="document-section prose">
+          <p class="section-kicker">Research / Project</p>
+          <h1>PairGate3D</h1>
+            <p class="entry-meta">PairGate3D: Score-Independent Geometric Gating for Online 3D Multi-Object Tracking</p>
+            <p class="entry-role">第一作者 · IEEE-RICAI 2026 已录用</p>
+            <h2>项目简介</h2>
+            <p>PairGate3D 研究自动驾驶场景中的在线三维多目标跟踪，重点处理轨迹与检测框之间的数据关联。</p>
+            <h2>研究内容</h2>
+            <p>系统结合 CA-KF 运动预测、两阶段数据关联和基于观测的状态更新。在候选匹配进入分配过程前，几何门控检查轨迹与检测框的三维中心距离及鸟瞰图重叠；距离较大且重叠较低的候选被筛除，其余候选保留原有代价和排序。门控阈值可根据预测不确定性调整，也可针对目标场景校准。</p>
+            <h2>结果与进展</h2>
+            <p>在 KITTI Car 的 11 个留出序列上，几何门控提高了五种检测器输入下的 HOTA，其中 PointRCNN 提高 5.757 个百分点。论文还在 V2V4Real 和 nuScenes 上评估了自适应门控与场景校准。论文由 Chunxiang Lu、Huidong Xu、Sixian Zhang 合著，已被 IEEE-RICAI 2026 录用。</p>
+          
+          <h2>相关链接</h2>
+          <div class="inline-links"><a href="/projects/academic-research.html#veloodemot">研究项目记录 →</a><a href="/#research">返回项目列表 →</a></div>
+        </section>
+      </main>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ROS 2 激光 SLAM 仿真｜卢春翔 Chunxiang Lu</title>
+    <meta name="description" content="ROS 2 激光 SLAM 调研、机器人仿真、二维建图与导航实验。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/ros2-slam.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ROS 2 激光 SLAM 仿真｜卢春翔 Chunxiang Lu">
+    <meta property="og:description" content="开源软件开发、复现实验、测试验证与技术文档。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/ros2-slam.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="site-shell">
+      <aside class="profile-rail" aria-label="个人身份与导航">
+        <div class="profile-top">
+          <a class="monogram" href="/" aria-label="返回首页">LCX</a>
+          <div><p class="profile-name">卢春翔</p><p class="profile-name-en">Chunxiang Lu</p></div>
+          <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="profile-nav">MENU</button>
+          <p class="profile-role">Undergraduate Researcher<br>Information and Computing Science<br>Hefei University of Technology</p>
+        </div>
+        <div class="profile-desktop-details">
+          <div class="profile-block"><p class="profile-label">Author</p><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID · 0009-0001-8844-5017 ↗</a></div>
+          <div class="profile-block"><p class="profile-label">Contact</p><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub · echobird233 ↗</a><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">2024213986@mail.hfut.edu.cn ↗</a></div>
+        </div>
+        <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/#about">About</a><a href="/#research">Research</a><a href="/#experience" aria-current="page">Experience</a><a href="/resume.html">CV</a></nav>
+        <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
+      </aside>
+
+      <main id="main-content" class="document">
+        <section class="document-section prose">
+          <p class="section-kicker">Experience / Project</p>
+          <h1>ROS 2 激光 SLAM 调研与复现实验</h1>
+          <p class="entry-role">上海苦芽科技有限公司 · 线上实习 · 2026.07.15 起</p>
+          <p class="entry-meta">ROS 2 Jazzy · Gazebo Harmonic · RViz2 · Nav2 · slam_toolbox</p>
+          <h2>项目简介</h2>
+          <p>项目围绕机器人二维激光建图与导航，搭建并测试 ROS 2 仿真流程。</p>
+          <h2>工作内容</h2>
+          <p>我使用 ROS 2 Jazzy、Gazebo、TurtleBot3、slam_toolbox 和 Nav2 搭建实验环境，检查激光扫描、里程计、坐标变换、地图和导航接口。实验包括方形房间与仓库场景：我编写导航目标脚本，检查 world 与 map 坐标的转换，并记录地图、机器人路径、扫描数据和运行日志。</p>
+          <h2>结果与进展</h2>
+          <p>方形房间完成 6 次导航，自由空间覆盖率为 0.9291。仓库场景在修正目标坐标后完成 10/10 个导航目标并保存地图，后续实验记录了 378 帧激光扫描。上述结果来自仿真环境；代码、实验记录和复现说明已整理至 GitHub。</p>
+          <h2>相关链接</h2>
+          <div class="inline-links"><a href="https://github.com/echobird233/ros2-lidar-slam-study" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
+        
+          <div class="inline-links"><a href="/#experience">返回项目列表 →</a></div>
+        </section>
+      </main>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

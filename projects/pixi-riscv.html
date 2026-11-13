@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixi RISC-V 计算机视觉验证｜卢春翔 Chunxiang Lu</title>
+    <meta name="description" content="Pixi 在 RISC-V 模拟环境中的安装、任务编排和计算机视觉验证。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/pixi-riscv.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pixi RISC-V 计算机视觉验证｜卢春翔 Chunxiang Lu">
+    <meta property="og:description" content="开源软件开发、复现实验、测试验证与技术文档。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/pixi-riscv.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="site-shell">
+      <aside class="profile-rail" aria-label="个人身份与导航">
+        <div class="profile-top">
+          <a class="monogram" href="/" aria-label="返回首页">LCX</a>
+          <div><p class="profile-name">卢春翔</p><p class="profile-name-en">Chunxiang Lu</p></div>
+          <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="profile-nav">MENU</button>
+          <p class="profile-role">Undergraduate Researcher<br>Information and Computing Science<br>Hefei University of Technology</p>
+        </div>
+        <div class="profile-desktop-details">
+          <div class="profile-block"><p class="profile-label">Author</p><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID · 0009-0001-8844-5017 ↗</a></div>
+          <div class="profile-block"><p class="profile-label">Contact</p><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub · echobird233 ↗</a><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">2024213986@mail.hfut.edu.cn ↗</a></div>
+        </div>
+        <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/#about">About</a><a href="/#research">Research</a><a href="/#experience" aria-current="page">Experience</a><a href="/resume.html">CV</a></nav>
+        <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
+      </aside>
+
+      <main id="main-content" class="document">
+        <section class="document-section prose">
+          <p class="section-kicker">Experience / Project</p>
+          <h1>Pixi RISC-V 支持验证与计算机视觉应用</h1>
+          <p class="entry-role">上海苦芽科技有限公司 · 线上实习 · 2026.07.15 起</p>
+          <p class="entry-meta">QEMU RISC-V · Ubuntu 24.04 · Pixi 0.73.0 · OpenCV · ONNX</p>
+          <h2>项目简介</h2>
+          <p>项目在 QEMU 模拟的 RISC-V 64 位环境中验证 Pixi 和计算机视觉任务。</p>
+          <h2>工作内容</h2>
+          <p>我配置 Ubuntu 24.04 虚拟机，测试 Pixi 0.73.0 的安装和基本命令，并编写任务文件组织数据预处理、训练、评估、光流和 ONNX 推理。当时 conda-forge 缺少 RISC-V 版 Python、NumPy 和 OpenCV 软件包，项目依赖通过 APT 安装，Pixi 负责任务编排。</p>
+          <h2>结果与进展</h2>
+          <p>Pixi 安装与任务编排验证完成。Lucas–Kanade 光流实验使用 120 帧合成视频，平均耗时 3.39 毫秒/帧；随机初始化的轻量 CNN 在 ONNX 推理示例中达到 1.08 毫秒的稳态中位耗时。实验代码、任务配置和结果记录已整理至 GitHub。</p>
+          <h2>相关链接</h2>
+          <div class="inline-links"><a href="https://github.com/echobird233/pixi-riscv-vision-validation" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
+        
+          <div class="inline-links"><a href="/#experience">返回项目列表 →</a></div>
+        </section>
+      </main>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>场景自适应车辆轨迹预测｜卢春翔 Chunxiang Lu</title>
+    <meta name="description" content="面向车辆轨迹预测的运动学专家与高清地图感知专家场景自适应路由。">
+    <link rel="canonical" href="https://luchunxiang.cn/projects/trajectory-routing.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="场景自适应车辆轨迹预测｜卢春翔 Chunxiang Lu">
+    <meta property="og:description" content="从数学理论到三维感知与运动建模的研究记录。">
+    <meta property="og:url" content="https://luchunxiang.cn/projects/trajectory-routing.html">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div class="site-shell">
+      <aside class="profile-rail" aria-label="个人身份与导航">
+        <div class="profile-top">
+          <a class="monogram" href="/" aria-label="返回首页">LCX</a>
+          <div><p class="profile-name">卢春翔</p><p class="profile-name-en">Chunxiang Lu</p></div>
+          <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="profile-nav">MENU</button>
+          <p class="profile-role">Undergraduate Researcher<br>Information and Computing Science<br>Hefei University of Technology</p>
+        </div>
+        <div class="profile-desktop-details">
+          <div class="profile-block"><p class="profile-label">Author</p><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID · 0009-0001-8844-5017 ↗</a></div>
+          <div class="profile-block"><p class="profile-label">Contact</p><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub · echobird233 ↗</a><a href="mailto:edakacayaf92@gmail.com">edakacayaf92@gmail.com ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">2024213986@mail.hfut.edu.cn ↗</a></div>
+        </div>
+        <details class="profile-mobile-details"><summary>Author &amp; contact information</summary><div class="profile-block"><p>Preferred name: Chunxiang Lu</p><p>School of Mathematics, HFUT</p><a href="https://orcid.org/0009-0001-8844-5017" target="_blank" rel="noopener noreferrer">ORCID ↗</a><a href="https://github.com/echobird233" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:edakacayaf92@gmail.com">Primary email ↗</a><a href="mailto:2024213986@mail.hfut.edu.cn">HFUT email ↗</a></div></details>
+        <nav id="profile-nav" class="profile-nav" aria-label="主导航"><a href="/#about">About</a><a href="/#research" aria-current="page">Research</a><a href="/#experience">Experience</a><a href="/resume.html">CV</a></nav>
+        <p class="profile-foot">Last updated · 2026.10<br>luchunxiang.cn</p>
+      </aside>
+
+      <main id="main-content" class="document">
+        <section class="document-section prose">
+          <p class="section-kicker">Research / Project</p>
+          <h1>面向车辆轨迹预测的运动学专家与高清地图感知专家场景自适应路由</h1>
+            <p class="entry-meta">Scenario-Adaptive Routing between Kinematic and HD-Map-Aware Experts for Vehicle Trajectory Prediction</p>
+            <p class="entry-role">独立第一作者 · 稿件准备重投</p>
+            <h2>项目简介</h2>
+            <p>项目研究如何根据车辆运动和道路场景，在运动学与地图感知预测器之间选择轨迹预测结果。</p>
+            <h2>研究内容</h2>
+            <p>项目固定恒速度和 MapAware 两个预测器，利用目标速度、加速度、转向变化以及局部地图特征，判断每个样本适合采用哪一条预测轨迹。我负责实验设计、选择器训练、地图输入扰动实验和跨数据集验证。实验对象为车辆，采用单智能体和单轨迹预测，先计算两个预测结果再进行选择。</p>
+            <h2>结果与进展</h2>
+            <p>在包含 1062 个车辆样本的 AV2 测试集中，随机森林选择器的 ADE 为 2.2374 米，较恒速度基线降低 2.85%；独立 AV2 留出集和 nuScenes 验证集分别降低 3.00% 和 1.87%。稿件曾投稿 <em>Vehicles</em>，目前正在补充实验并准备重投，程序及复现说明已存档至 Zenodo。</p>
+            <h2>相关链接</h2>
+            <div class="inline-links"><a href="https://doi.org/10.5281/zenodo.22264823" target="_blank" rel="noopener noreferrer">Zenodo record · 10.5281/zenodo.22264823 ↗</a></div>
+          
+          <div class="inline-links"><a href="/#research">返回项目列表 →</a></div>
+        </section>
+      </main>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
