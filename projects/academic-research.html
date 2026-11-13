@@ -57,7 +57,7 @@
           <div id="veloodemot" class="subsection prose" data-progress-label="PairGate3D">
             <h2>PairGate3D</h2>
             <p class="entry-meta">PairGate3D: Score-Independent Geometric Gating for Online 3D Multi-Object Tracking</p>
-            <p>作者：Chunxiang Lu、Huidong Xu、Sixian Zhang。论文已被 2026 IEEE 8th International Conference on Robotics, Intelligent Control and Artificial Intelligence（IEEE-RICAI 2026）录用。</p>
+            <p>这篇合著论文已被 2026 IEEE 8th International Conference on Robotics, Intelligent Control and Artificial Intelligence（IEEE-RICAI 2026）录用，我为第一作者。</p>
             <p>在线三维多目标跟踪需要将当前帧的检测结果与已有轨迹关联。PairGate3D 在分配前引入独立于轨迹分数的几何门控：当预测轨迹与检测框的三维中心距离较大、鸟瞰图重叠较低时，筛除该候选匹配；其余候选保留原有代价和排序。</p>
             <p>系统结合 CA-KF 运动预测、两阶段数据关联和基于观测的状态更新。门控阈值可根据预测不确定性调整，也可针对目标场景校准。</p>
             <p>在 KITTI Car 的 11 个留出序列上，几何门控提高了五种检测器输入下的 HOTA，其中 PointRCNN 提高 5.757 个百分点。论文还在 V2V4Real 和 nuScenes 上评估了自适应门控与场景校准。</p>
