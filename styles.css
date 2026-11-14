@@ -408,6 +408,14 @@ summary:focus-visible {
 
 .research-lines p { margin: 0; }
 
+.project-poster {
+  display: block;
+  width: 100%;
+  height: min(75vh, 800px);
+  min-height: 420px;
+  border: 1px solid var(--line);
+}
+
 .research-lines strong {
   display: block;
   margin: 0 0 8px;

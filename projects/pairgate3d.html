@@ -38,31 +38,17 @@
           <h1>PairGate3D</h1>
             <p class="entry-meta">PairGate3D: Score-Independent Geometric Gating for Online 3D Multi-Object Tracking</p>
             <p class="entry-role">第一作者 · IEEE-RICAI 2026 已录用</p>
-            <h2>项目简介</h2>
-            <p>PairGate3D 研究自动驾驶场景中的在线三维多目标跟踪，重点处理轨迹与检测框之间的数据关联。</p>
-            <h2>研究内容</h2>
-            <p>系统结合 CA-KF 运动预测、两阶段数据关联和基于观测的状态更新。在候选匹配进入分配过程前，几何门控检查轨迹与检测框的三维中心距离及鸟瞰图重叠；距离较大且重叠较低的候选被筛除，其余候选保留原有代价和排序。门控阈值可根据预测不确定性调整，也可针对目标场景校准。</p>
+            <h2>摘要</h2>
+            <p lang="en">Online 3D multi-object tracking maintains vehicle identities through frame-wise detection association. In score-weighted association, track scores affect both candidate ranking and, under a fixed matching threshold, the spatial acceptance region, admitting distant and weakly overlapping pairs to assignment. We present PairGate3D, a complete online tracking system with a score-independent geometric gate. Before assignment, the gate rejects a candidate edge when its 3D center distance is large and BEV overlap is low, while retaining the original costs and ranking of all other candidates. The thresholds can adapt to prediction uncertainty or be calibrated on target scenes. Gating improves HOTA across five KITTI Car detector streams, including a +5.757-point gain on PointRCNN. Evaluations on V2V4Real and nuScenes further show how geometric eligibility supports tracking accuracy and identity continuity across datasets.</p>
             <h2>研究问题</h2>
             <p>在线三维多目标跟踪根据连续帧的目标检测结果维护车辆轨迹。跟踪器需要判断当前检测框对应哪条已有轨迹，并在目标短暂漏检后继续预测其位置。当错误的检测框被接入轨迹，位置和身份信息都可能受到影响，后续帧中的预测也会随之偏移。</p>
             <p>论文关注关联过程中的候选匹配边界。在使用轨迹分数加权的关联代价中，分数会影响候选匹配的排序；当系统还使用固定代价阈值决定候选是否进入分配时，分数也会改变候选在空间上的接受范围。相同中心距离的轨迹与检测框，可能因轨迹分数不同而得到不同的准入结果。</p>
             <p>研究的问题是如何在分数加权的候选排序之外，单独约束检测框与轨迹的几何关系。这样可以在进入分配算法之前，检查空间上相距较远且重叠较小的候选组合。</p>
-            <h2>系统流程</h2>
-            <p>PairGate3D 接收预训练检测器输出的三维框，并对已有轨迹使用恒加速度卡尔曼滤波器（CA-KF）预测。每条活动轨迹保存位置、运动状态、最近一次观测到的框尺寸和朝向等信息。检测缺失时，系统根据运动状态传播目标中心；检测重新匹配后，再使用观测更新状态并确定输出框。</p>
-            <p>关联过程先计算检测框和预测轨迹之间的代价。代价结合中心距离、速度残差和鸟瞰图重叠等信息；轨迹分数参与候选排序。几何门控随后对已有候选进行检查：当三维中心距离超过阈值，同时鸟瞰图重叠低于阈值时，该候选不进入后续匹配。</p>
-            <p>其余候选沿用原来的代价与排序。系统采用两阶段分配，先处理高分检测，再处理剩余检测和未分配轨迹。匹配结果用于更新轨迹状态，轨迹管理模块则根据观测与漏检情况决定轨迹的保留和结束。</p>
-            <h2>门控与阈值</h2>
-            <p>距离和重叠分别描述候选框的中心位置与空间形状。联合规则考虑两者的组合：相距较远且重叠较小的候选被排除，其余情形继续交给关联代价和分配算法处理。门控作用于所有活动轨迹，处理的是候选能否参与匹配。</p>
-            <p>论文还研究了自适应阈值。系统利用滤波器的位置不确定性和预测框的尺度调整距离、重叠阈值，并比较固定门控、不同自适应方式及目标场景校准。跨数据集实验分别采用相应数据集的跟踪协议，结果用于观察不同设置下的跟踪表现和身份连续性。</p>
-            <p>目标在连续若干帧未被检测到时，滤波器根据运动模型更新预测中心，框的尺寸和朝向沿用最近的观测。目标再次出现后，新的检测框参与关联与状态校正。门控检查使用预测框与检测框的中心距离及鸟瞰图交并比，因此两者的相对位置和重叠程度都会影响候选是否保留。</p>
-            <p>固定阈值为所有活动轨迹提供共同的几何检查条件。自适应版本则根据位置不确定性调整阈值，同时考虑预测框的尺度。论文分别测试距离阈值、重叠阈值及两者联合调整，并与固定门控作配对比较。</p>
-            <h2>结果与进展</h2>
-            <p>在 KITTI Car 的 11 个留出序列上，几何门控提高了五种检测器输入下的 HOTA，其中 PointRCNN 提高 5.757 个百分点。论文还在 V2V4Real 和 nuScenes 上评估了自适应门控与场景校准。这篇合著论文已被 IEEE-RICAI 2026 录用，我为第一作者。</p>
-            <p>KITTI 实验使用 CasA、PointRCNN、PV-RCNN、SECOND-IoU 和 VirConv 五组检测结果，并在相同设置下比较启用与关闭门控。论文同时考察检测、关联与定位指标，以及误检、漏检和身份切换。逐序列比较和门控组件消融用于观察不同检测输入和门控规则下的变化。</p>
-            <p>在跨数据集评估中，V2V4Real 官方测试部分包含三个序列；nuScenes 使用车辆类别和验证场景。论文分别报告官方跟踪指标与自定义 CLEAR-MOT 指标，并在 nuScenes 中比较固定阈值、自适应阈值和场景校准的结果。不同协议下的数值按各自的评估设置理解。</p>
-            <p>论文在 KITTI 的开发序列上确定参数，再在 11 个留出序列上进行配对评估。对每组检测输入，启用与关闭门控时保持检测、基础代价、轨迹管理和阈值设置一致。除整体结果外，逐序列结果用于观察收益在不同场景中的变化。</p>
-          
-          <h2>相关链接</h2>
-          <div class="inline-links"><a href="/projects/academic-research.html#veloodemot">研究项目记录 →</a><a href="/#research">返回项目列表 →</a></div>
+            <h2>论文海报</h2>
+            <object class="project-poster" data="/assets/pairgate3d-poster.pdf" type="application/pdf" aria-label="PairGate3D 论文海报">
+              <p>浏览器无法预览 PDF，请使用下方链接打开海报。</p>
+            </object>
+            <div class="inline-links"><a href="/assets/pairgate3d-poster.pdf" target="_blank" rel="noopener noreferrer">打开论文海报 ↗</a><a href="/assets/pairgate3d-poster.pdf" download>下载 PDF ↓</a><a href="/#research">返回项目列表 →</a></div>
         </section>
       </main>
     </div>
